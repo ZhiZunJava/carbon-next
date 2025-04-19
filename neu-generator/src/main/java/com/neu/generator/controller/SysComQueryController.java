@@ -3,6 +3,7 @@ package com.neu.generator.controller;
 import java.util.List;
 import java.util.Map;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -102,11 +103,12 @@ public class SysComQueryController extends BaseController {
      */
     @PreAuthorize("@ss.hasPermi('query:comQuery:export')")
     @Log(title = "通用查询", businessType = BusinessType.EXPORT)
-    @GetMapping("/export")
-    public AjaxResult export(SysComQuery sysComQuery) {
+    @PostMapping("/export")
+    public void export(HttpServletResponse response, SysComQuery sysComQuery)
+    {
         List<SysComQuery> list = sysComQueryService.selectSysComQueryList(sysComQuery);
         ExcelUtil<SysComQuery> util = new ExcelUtil<SysComQuery>(SysComQuery.class);
-        return util.exportExcel(list, "comQuery");
+        util.exportExcel(response, list, "通用查询数据");
     }
 
     /**

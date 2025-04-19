@@ -34,7 +34,7 @@ public class SysComQuery extends BaseEntity
     private String customSql;
 
     /** 类型 */
-    @Excel(name = "类型")
+    @Excel(name = "类型", dictType = "sys_query_type")
     private String type;
 
     /** 配置项 */
