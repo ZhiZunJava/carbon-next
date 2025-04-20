@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neu.carbon.footprint.mapper.CfElectricCheckpointMapper">
-    
+
     <resultMap type="CfElectricCheckpoint" id="CfElectricCheckpointResult">
         <result property="id"    column="id"    />
         <result property="name"    column="name"    />
@@ -22,23 +22,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectCfElectricCheckpointList" parameterType="CfElectricCheckpoint" resultMap="CfElectricCheckpointResult">
         <include refid="selectCfElectricCheckpointVo"/>
-        <where>  
+        <where>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-            <if test="address != null  and address != ''"> and address like concat('%', #{address}, '%')</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
-            <if test="params.beginCreateTime != null and params.beginCreateTime != '' and params.endCreateTime != null and params.endCreateTime != ''"> and create_time between #{params.beginCreateTime} and #{params.endCreateTime}</if>
         </where>
     </select>
-    
+
     <select id="selectCfElectricCheckpointById" parameterType="Long" resultMap="CfElectricCheckpointResult">
         <include refid="selectCfElectricCheckpointVo"/>
         where id = #{id}
     </select>
-        
-    <insert id="insertCfElectricCheckpoint" parameterType="CfElectricCheckpoint">
+
+    <insert id="insertCfElectricCheckpoint" parameterType="CfElectricCheckpoint" useGeneratedKeys="true" keyProperty="id">
         insert into cf_electric_checkpoint
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">id,</if>
             <if test="name != null and name != ''">name,</if>
             <if test="address != null and address != ''">address,</if>
             <if test="rtPower != null">rt_power,</if>
@@ -47,9 +45,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="remark != null">remark,</if>
             <if test="createBy != null">create_by,</if>
             <if test="createTime != null">create_time,</if>
-         </trim>
+        </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">#{id},</if>
             <if test="name != null and name != ''">#{name},</if>
             <if test="address != null and address != ''">#{address},</if>
             <if test="rtPower != null">#{rtPower},</if>
@@ -58,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="remark != null">#{remark},</if>
             <if test="createBy != null">#{createBy},</if>
             <if test="createTime != null">#{createTime},</if>
-         </trim>
+        </trim>
     </insert>
 
     <update id="updateCfElectricCheckpoint" parameterType="CfElectricCheckpoint">
@@ -81,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deleteCfElectricCheckpointByIds" parameterType="String">
-        delete from cf_electric_checkpoint where id in 
+        delete from cf_electric_checkpoint where id in
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
         </foreach>

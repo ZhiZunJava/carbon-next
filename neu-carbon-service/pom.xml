@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.neu</groupId>
 		<artifactId>carbon</artifactId>
-		<version>3.3.0</version>
+		<version>3.8.9</version>
 	</parent>
 	<artifactId>neu-carbon-service</artifactId>
 	<properties>
@@ -22,10 +22,6 @@
 		<dependency>
 			<groupId>com.neu</groupId>
 			<artifactId>neu-common</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.neu</groupId>
-			<artifactId>neu-common-biz</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

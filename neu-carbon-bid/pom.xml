@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.neu</groupId>
 		<artifactId>carbon</artifactId>
-		<version>3.3.0</version>
+		<version>3.8.9</version>
 	</parent>
 	<artifactId>neu-carbon-bid</artifactId>
 	<properties>

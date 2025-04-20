@@ -54,6 +54,32 @@
             <artifactId>neu-generator</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.neu</groupId>
+            <artifactId>neu-carbon-footprint</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.neu</groupId>
+            <artifactId>neu-carbon-mes</artifactId>
+        </dependency>
+        <!--添加招投标 2023-04-21-->
+        <dependency>
+            <groupId>com.neu</groupId>
+            <artifactId>neu-carbon-bid</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.neu</groupId>
+            <artifactId>neu-carbon-report</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.neu</groupId>
+            <artifactId>neu-carbon-scm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.neu</groupId>
+            <artifactId>neu-carbon-wms</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

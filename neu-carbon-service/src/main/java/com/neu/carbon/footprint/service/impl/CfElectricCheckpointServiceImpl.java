@@ -1,6 +1,7 @@
 package com.neu.carbon.footprint.service.impl;
 
 import java.util.List;
+import com.neu.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.neu.carbon.footprint.mapper.CfElectricCheckpointMapper;
@@ -8,22 +9,22 @@ import com.neu.carbon.footprint.domain.CfElectricCheckpoint;
 import com.neu.carbon.footprint.service.ICfElectricCheckpointService;
 
 /**
- * 能效检测点Service业务层处理
- * 
- * @author neuedu
- * @date 2022-07-22
+ * 能效预警Service业务层处理
+ *
+ * @author carbon_anning
+ * @date 2025-04-20
  */
 @Service
-public class CfElectricCheckpointServiceImpl implements ICfElectricCheckpointService 
+public class CfElectricCheckpointServiceImpl implements ICfElectricCheckpointService
 {
     @Autowired
     private CfElectricCheckpointMapper cfElectricCheckpointMapper;
 
     /**
-     * 查询能效检测点
-     * 
-     * @param id 能效检测点ID
-     * @return 能效检测点
+     * 查询能效预警
+     *
+     * @param id 能效预警主键
+     * @return 能效预警
      */
     @Override
     public CfElectricCheckpoint selectCfElectricCheckpointById(Long id)
@@ -32,10 +33,10 @@ public class CfElectricCheckpointServiceImpl implements ICfElectricCheckpointSer
     }
 
     /**
-     * 查询能效检测点列表
-     * 
-     * @param cfElectricCheckpoint 能效检测点
-     * @return 能效检测点
+     * 查询能效预警列表
+     *
+     * @param cfElectricCheckpoint 能效预警
+     * @return 能效预警
      */
     @Override
     public List<CfElectricCheckpoint> selectCfElectricCheckpointList(CfElectricCheckpoint cfElectricCheckpoint)
@@ -44,21 +45,22 @@ public class CfElectricCheckpointServiceImpl implements ICfElectricCheckpointSer
     }
 
     /**
-     * 新增能效检测点
-     * 
-     * @param cfElectricCheckpoint 能效检测点
+     * 新增能效预警
+     *
+     * @param cfElectricCheckpoint 能效预警
      * @return 结果
      */
     @Override
     public int insertCfElectricCheckpoint(CfElectricCheckpoint cfElectricCheckpoint)
     {
+        cfElectricCheckpoint.setCreateTime(DateUtils.getNowDate());
         return cfElectricCheckpointMapper.insertCfElectricCheckpoint(cfElectricCheckpoint);
     }
 
     /**
-     * 修改能效检测点
-     * 
-     * @param cfElectricCheckpoint 能效检测点
+     * 修改能效预警
+     *
+     * @param cfElectricCheckpoint 能效预警
      * @return 结果
      */
     @Override
@@ -68,9 +70,9 @@ public class CfElectricCheckpointServiceImpl implements ICfElectricCheckpointSer
     }
 
     /**
-     * 批量删除能效检测点
-     * 
-     * @param ids 需要删除的能效检测点ID
+     * 批量删除能效预警
+     *
+     * @param ids 需要删除的能效预警主键
      * @return 结果
      */
     @Override
@@ -80,9 +82,9 @@ public class CfElectricCheckpointServiceImpl implements ICfElectricCheckpointSer
     }
 
     /**
-     * 删除能效检测点信息
-     * 
-     * @param id 能效检测点ID
+     * 删除能效预警信息
+     *
+     * @param id 能效预警主键
      * @return 结果
      */
     @Override

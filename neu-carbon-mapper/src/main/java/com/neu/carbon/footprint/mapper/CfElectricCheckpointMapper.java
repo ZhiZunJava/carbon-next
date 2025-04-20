@@ -4,57 +4,57 @@ import java.util.List;
 import com.neu.carbon.footprint.domain.CfElectricCheckpoint;
 
 /**
- * 能效检测点Mapper接口
- * 
- * @author neuedu
- * @date 2022-07-22
+ * 能效预警Mapper接口
+ *
+ * @author carbon_anning
+ * @date 2025-04-20
  */
-public interface CfElectricCheckpointMapper 
+public interface CfElectricCheckpointMapper
 {
     /**
-     * 查询能效检测点
-     * 
-     * @param id 能效检测点ID
-     * @return 能效检测点
+     * 查询能效预警
+     *
+     * @param id 能效预警主键
+     * @return 能效预警
      */
     public CfElectricCheckpoint selectCfElectricCheckpointById(Long id);
 
     /**
-     * 查询能效检测点列表
-     * 
-     * @param cfElectricCheckpoint 能效检测点
-     * @return 能效检测点集合
+     * 查询能效预警列表
+     *
+     * @param cfElectricCheckpoint 能效预警
+     * @return 能效预警集合
      */
     public List<CfElectricCheckpoint> selectCfElectricCheckpointList(CfElectricCheckpoint cfElectricCheckpoint);
 
     /**
-     * 新增能效检测点
-     * 
-     * @param cfElectricCheckpoint 能效检测点
+     * 新增能效预警
+     *
+     * @param cfElectricCheckpoint 能效预警
      * @return 结果
      */
     public int insertCfElectricCheckpoint(CfElectricCheckpoint cfElectricCheckpoint);
 
     /**
-     * 修改能效检测点
-     * 
-     * @param cfElectricCheckpoint 能效检测点
+     * 修改能效预警
+     *
+     * @param cfElectricCheckpoint 能效预警
      * @return 结果
      */
     public int updateCfElectricCheckpoint(CfElectricCheckpoint cfElectricCheckpoint);
 
     /**
-     * 删除能效检测点
-     * 
-     * @param id 能效检测点ID
+     * 删除能效预警
+     *
+     * @param id 能效预警主键
      * @return 结果
      */
     public int deleteCfElectricCheckpointById(Long id);
 
     /**
-     * 批量删除能效检测点
-     * 
-     * @param ids 需要删除的数据ID
+     * 批量删除能效预警
+     *
+     * @param ids 需要删除的数据主键集合
      * @return 结果
      */
     public int deleteCfElectricCheckpointByIds(Long[] ids);
