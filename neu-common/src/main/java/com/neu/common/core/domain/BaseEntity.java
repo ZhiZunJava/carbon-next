@@ -1,5 +1,6 @@
 package com.neu.common.core.domain;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -7,14 +8,17 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
  * Entity基类
  * 
  * @author ruoyi
  */
+@EntityScan
 public class BaseEntity implements Serializable
 {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /** 搜索值 */

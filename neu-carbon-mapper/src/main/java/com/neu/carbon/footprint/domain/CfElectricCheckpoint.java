@@ -5,6 +5,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.neu.common.annotation.Excel;
 
+import java.io.Serial;
+
 /**
  * 能效检测点对象 cf_electric_checkpoint
  *
@@ -13,6 +15,7 @@ import com.neu.common.annotation.Excel;
  */
 public class CfElectricCheckpoint extends BaseEntity
 {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /** 编号 */
@@ -35,7 +38,7 @@ public class CfElectricCheckpoint extends BaseEntity
     private Long rtVoltage;
 
     /** 状态 */
-    @Excel(name = "状态")
+    @Excel(name = "状态", dictType = "overload_status")
     private String status;
 
     public void setId(Long id)

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neu.carbon.footprint.mapper.CfElectricCheckpointMapper">
 
-    <resultMap type="CfElectricCheckpoint" id="CfElectricCheckpointResult">
+    <resultMap type="com.neu.carbon.footprint.domain.CfElectricCheckpoint" id="CfElectricCheckpointResult">
         <result property="id"    column="id"    />
         <result property="name"    column="name"    />
         <result property="address"    column="address"    />
@@ -20,7 +20,7 @@
         select id, name, address, rt_power, rt_voltage, status, remark, create_by, create_time from cf_electric_checkpoint
     </sql>
 
-    <select id="selectCfElectricCheckpointList" parameterType="CfElectricCheckpoint" resultMap="CfElectricCheckpointResult">
+    <select id="selectCfElectricCheckpointList" parameterType="com.neu.carbon.footprint.domain.CfElectricCheckpoint" resultMap="CfElectricCheckpointResult">
         <include refid="selectCfElectricCheckpointVo"/>
         <where>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
@@ -34,7 +34,7 @@
         where id = #{id}
     </select>
 
-    <insert id="insertCfElectricCheckpoint" parameterType="CfElectricCheckpoint" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertCfElectricCheckpoint" parameterType="com.neu.carbon.footprint.domain.CfElectricCheckpoint" useGeneratedKeys="true" keyProperty="id">
         insert into cf_electric_checkpoint
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="name != null and name != ''">name,</if>
@@ -58,7 +58,7 @@
         </trim>
     </insert>
 
-    <update id="updateCfElectricCheckpoint" parameterType="CfElectricCheckpoint">
+    <update id="updateCfElectricCheckpoint" parameterType="com.neu.carbon.footprint.domain.CfElectricCheckpoint">
         update cf_electric_checkpoint
         <trim prefix="SET" suffixOverrides=",">
             <if test="name != null and name != ''">name = #{name},</if>

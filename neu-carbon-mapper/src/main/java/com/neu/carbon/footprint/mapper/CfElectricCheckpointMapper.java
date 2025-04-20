@@ -2,6 +2,7 @@ package com.neu.carbon.footprint.mapper;
 
 import java.util.List;
 import com.neu.carbon.footprint.domain.CfElectricCheckpoint;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 能效预警Mapper接口
@@ -9,6 +10,7 @@ import com.neu.carbon.footprint.domain.CfElectricCheckpoint;
  * @author carbon_anning
  * @date 2025-04-20
  */
+@Mapper
 public interface CfElectricCheckpointMapper
 {
     /**
