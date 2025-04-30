@@ -303,7 +303,7 @@ public class SysRoleServiceImpl implements ISysRoleService
             rm.setMenuId(menuId);
             list.add(rm);
         }
-        if (list.size() > 0)
+        if (!list.isEmpty())
         {
             rows = roleMenuMapper.batchRoleMenu(list);
         }
@@ -327,7 +327,7 @@ public class SysRoleServiceImpl implements ISysRoleService
             rd.setDeptId(deptId);
             list.add(rd);
         }
-        if (list.size() > 0)
+        if (!list.isEmpty())
         {
             rows = roleDeptMapper.batchRoleDept(list);
         }

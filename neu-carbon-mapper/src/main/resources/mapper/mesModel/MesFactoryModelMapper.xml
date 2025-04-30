@@ -60,7 +60,7 @@
         </trim>
     </insert>
 
-    <update id="updateMesFactoryModel" parameterType="MesFactoryModel">
+    <update id="updateMesFactoryModel" parameterType="com.neu.carbon.mes.domain.MesFactoryModel">
         update mes_factory_model
         <trim prefix="SET" suffixOverrides=",">
             <if test="materialId != null">material_id = #{materialId},</if>
@@ -81,21 +81,21 @@
         </foreach>
     </delete>
 
-    <delete id="deleteMesFactoryModelDetailByIds" parameterType="String">
-        delete from mes_factory_model_detail where id in
-        <foreach item="id" collection="array" open="(" separator="," close=")">
-            #{id}
+    <delete id="deleteMesFactoryModelDetailByProductLineIds" parameterType="String">
+        delete from mes_factory_model_detail where product_line_id in
+        <foreach item="productLineId" collection="array" open="(" separator="," close=")">
+            #{productLineId}
         </foreach>
     </delete>
 
-    <delete id="deleteMesFactoryModelDetailById" parameterType="Long">
-        delete from mes_factory_model_detail where id = #{id}
+    <delete id="deleteMesFactoryModelDetailByProductLineId" parameterType="Long">
+        delete from mes_factory_model_detail where product_line_id = #{productLineId}
     </delete>
 
     <insert id="batchMesFactoryModelDetail">
-        insert into mes_factory_model_detail( id, product_line_id, equipment_id) values
+        insert into mes_factory_model_detail( product_line_id, equipment_id) values
         <foreach item="item" index="index" collection="list" separator=",">
-            ( #{item.id}, #{item.productLineId}, #{item.equipmentId})
+            ( #{item.productLineId}, #{item.equipmentId})
         </foreach>
     </insert>
 </mapper>

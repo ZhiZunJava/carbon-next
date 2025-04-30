@@ -72,7 +72,7 @@ public class MesFactoryModelServiceImpl implements IMesFactoryModelService
     @Override
     public int updateMesFactoryModel(MesFactoryModel mesFactoryModel)
     {
-        mesFactoryModelMapper.deleteMesFactoryModelDetailById(mesFactoryModel.getId());
+        mesFactoryModelMapper.deleteMesFactoryModelDetailByProductLineId(mesFactoryModel.getId());
         insertMesFactoryModelDetail(mesFactoryModel);
         return mesFactoryModelMapper.updateMesFactoryModel(mesFactoryModel);
     }
@@ -87,7 +87,7 @@ public class MesFactoryModelServiceImpl implements IMesFactoryModelService
     @Override
     public int deleteMesFactoryModelByIds(Long[] ids)
     {
-        mesFactoryModelMapper.deleteMesFactoryModelDetailByIds(ids);
+        mesFactoryModelMapper.deleteMesFactoryModelDetailByProductLineIds(ids);
         return mesFactoryModelMapper.deleteMesFactoryModelByIds(ids);
     }
 
@@ -101,7 +101,7 @@ public class MesFactoryModelServiceImpl implements IMesFactoryModelService
     @Override
     public int deleteMesFactoryModelById(Long id)
     {
-        mesFactoryModelMapper.deleteMesFactoryModelDetailById(id);
+        mesFactoryModelMapper.deleteMesFactoryModelDetailByProductLineId(id);
         return mesFactoryModelMapper.deleteMesFactoryModelById(id);
     }
 
@@ -122,7 +122,7 @@ public class MesFactoryModelServiceImpl implements IMesFactoryModelService
                 mesFactoryModelDetail.setProductLineId(id);
                 list.add(mesFactoryModelDetail);
             }
-            if (list.size() > 0)
+            if (!list.isEmpty())
             {
                 mesFactoryModelMapper.batchMesFactoryModelDetail(list);
             }

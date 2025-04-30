@@ -68,7 +68,7 @@ public interface MesFactoryModelMapper
      * @param ids 需要删除的数据主键集合
      * @return 结果
      */
-    public int deleteMesFactoryModelDetailByIds(Long[] ids);
+    public int deleteMesFactoryModelDetailByProductLineIds(Long[] ids);
 
     /**
      * 批量新增工厂建模明细
@@ -85,5 +85,5 @@ public interface MesFactoryModelMapper
      * @param id 工厂建模ID
      * @return 结果
      */
-    public int deleteMesFactoryModelDetailById(Long id);
+    public int deleteMesFactoryModelDetailByProductLineId(Long id);
 }
