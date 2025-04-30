@@ -119,7 +119,7 @@ public class MesFactoryModelServiceImpl implements IMesFactoryModelService
             List<MesFactoryModelDetail> list = new ArrayList<MesFactoryModelDetail>();
             for (MesFactoryModelDetail mesFactoryModelDetail : mesFactoryModelDetailList)
             {
-                mesFactoryModelDetail.setId(id);
+                mesFactoryModelDetail.setProductLineId(id);
                 list.add(mesFactoryModelDetail);
             }
             if (list.size() > 0)
