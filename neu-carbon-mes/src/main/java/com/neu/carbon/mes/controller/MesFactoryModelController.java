@@ -66,6 +66,14 @@ public class MesFactoryModelController extends BaseController
     public void export(HttpServletResponse response, MesFactoryModel mesFactoryModel)
     {
         List<MesFactoryModel> list = mesFactoryModelService.selectMesFactoryModelList(mesFactoryModel);
+        list.stream().forEach(model->{
+            WmsMaterialInfo material = wmsMaterialInfoService.selectWmsMaterialInfoById(model.getMaterialId());
+            if(material!=null) {
+                model.setMaterialName(material.getName());
+                model.setProductModel(material.getModel());
+                model.setProductSpecification(material.getSpecification());
+            }
+        });
         ExcelUtil<MesFactoryModel> util = new ExcelUtil<MesFactoryModel>(MesFactoryModel.class);
         util.exportExcel(response, list, "工厂建模数据");
     }
